@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carbolabs Corporation</title>
+    <link rel="shortcut icon" href="./Image/Carbolabs logo for web.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+            <!-- Left: Logo + Name -->
+            <div class="flex items-center space-x-3">
+                <a href="#hot-products" class="flex items-center">
+                    <img src="./Image/carbos.svg" alt="Carbolabs Logo"
+                        class="h-14 w-auto transition-transform duration-300 hover:scale-105">
+                </a>
+                <span
+                    class="font-semibold text-lg text-[#0077c2] inline-block transform transition-transform duration-300 hover:scale-110 hover:text-[#005b99]">
+                    Carbolabs Corporation
+                </span>
+            </div>
+
+            <!-- Hamburger Button -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6 font-medium">
+                <li><a href="#hero" class="hover:text-[#0077c2]">Home</a></li>
+                <li><a href="#about" class="hover:text-[#0077c2]">About</a></li>
+                <!-- ✅ Animated Products dropdown (desktop + mobile) -->
+                <li class="relative">
+                    <!-- PRODUCTS DROPDOWN (drop this into your nav where Products was) -->
+                <li class="relative" style="min-width:0;">
+                    <button id="product-btn" aria-expanded="false"
+                        class="flex items-center gap-2 hover:text-[#0077c2] transition focus:outline-none">
+                        Products
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <!-- menu — positioned absolutely so it is not clipped; z-index high so clickable -->
+                    <ul id="product-menu"
+                        class="absolute left-0 mt-2 w-64 bg-white shadow-xl rounded-lg opacity-0 scale-95 pointer-events-none transition-all duration-200 ease-out z-[9999]"
+                        style="top:100%; transform-origin: top left;">
+                        <li><a href="./basicchem.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-t-lg">Basic
+                                Raw
+                                Materials</a></li>
+                        <li><a href="ro-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">RO Water
+                                Treatment
+                                Chemicals</a></li>
+                        <li><a href="boiler-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler
+                                Water Treatment
+                                Chemicals</a></li>
+                        <li><a href="cooling-tower.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower
+                                Treatment
+                                Chemicals</a></li>
+                        <li><a href="waste-water.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Waste
+                                Water Chemicals</a></li>
+                        <li><a href="desalination.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Desalination
+                                Chemicals</a>
+                        </li>
+                        <li><a href="petro-field.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Petro
+                                Field Refinery Chemicals</a></li>
+                        <li><a href="specialty.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-b-lg">Other
+                                Specialty
+                                Chemicals</a></li>
+                    </ul>
+                </li>
+                <li><a href="#programs" class="hover:text-[#0077c2]">Programs</a></li>
+                <li><a href="#faq" class="hover:text-[#0077c2]">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-[#0077c2]">Contact</a></li>
+            </ul>
+
+            <!-- Right Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <!-- Search Button -->
+                <button id="search-toggle" class="p-2 hover:bg-gray-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+
+                <!-- Hidden Search Box -->
+                <div id="search-box"
+                    class="hidden absolute right-6 top-16 bg-white border border-gray-300 shadow-lg rounded-lg p-3 flex items-center space-x-2">
+                    <input id="search-input" type="text" placeholder="Type to search..."
+                        class="border rounded-lg p-2 w-64 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    <button id="search-btn" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700">
+                        Go
+                    </button>
+                </div>
+
+                <a href="./common-form.html"
+                    class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">
+                    Get Quote
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <ul class="flex flex-col items-center space-y-3 py-4 font-medium">
+                <li><a href="#hero" class="hover:text-[#0077c2]">Home</a></li>
+                <li><a href="#about" class="hover:text-[#0077c2]">About</a></li>
+                <!-- <li><a href="#new-products" class="hover:text-[#0077c2]">Product</a></li> -->
+                <li class="w-full text-center">
+                    <button id="mobile-product-btn"
+                        class="w-full flex justify-center items-center gap-2 py-2 hover:text-[#0077c2] transition">
+                        Products
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <!-- hidden submenu -->
+                    <ul id="mobile-product-menu" class="hidden flex-col space-y-1 mt-1">
+                        <li><a href="./basicchem.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Basic
+                                Raw Materials</a></li>
+                        <li><a href="ro-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">RO Water Treatment</a></li>
+                        <li><a href="./boiler-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler
+                                Water Treatment</a>
+                        </li>
+                        <li><a href="cooling-tower.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower Treatment</a>
+                        </li>
+                        <li><a href="waste-water.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Waste
+                                Water Chemicals</a></li>
+                        <li><a href="desalination.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Desalination Chemicals</a>
+                        </li>
+                        <li><a href="petro-field.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Petro
+                                Field Refinery</a></li>
+                        <li><a href="specialty.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Other
+                                Specialty Chemicals</a></li>
+                    </ul>
+                </li>
+
+
+                <li><a href="#programs" class="hover:text-[#0077c2]">Programs</a></li>
+                <li><a href="#faq" class="hover:text-[#0077c2]">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-[#0077c2]">Contact</a></li>
+                <li>
+                    <a href="#contact"
+                        class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">
+                        Get Quote
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- JS for Toggle -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- ================= HERO CAROUSEL ================= -->
+    <section id="hero" class="relative mt-[70px]">
+        <div class="carousel relative overflow-hidden h-[85vh]">
+            <!-- Slides 1 Boiler -->
+            <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
+                style="background-image:url('./Image/Boiler\ clean\ photo\ 1.jpg');">
+                <div class="bg-black/40 p-8 rounded-lg">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Engineered Chemistry for Thermal Efficiency</h1>
+                    <p class="mb-6 text-lg">Protecting assets. Enhancing performance.</p>
+                    <a href="./common-form.html"
+                        class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
+                        in
+                        Touch</a>
+                </div>
+            </div>
+            <div class="carousel relative overflow-hidden h-[85vh]">
+                <!-- Slides 2 Cooling Tower -->
+                <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
+                    style="background-image:url('./Image/Big\ Cooling\ tower\ .jpg');">
+                    <div class="bg-black/40 p-8 rounded-lg">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Intelligent Cooling Water Engineering</h1>
+                        <p class="mb-6 text-lg">Smart chemistry for system reliability.</p>
+                        <a href="./common-form.html"
+                            class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
+                            in
+                            Touch</a>
+                    </div>
+                </div>
+                <div class="carousel relative overflow-hidden h-[85vh]">
+                    <!-- Slides 3 Coal Power Plant  -->
+                    <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
+                        style="background-image:url('./Image/coal\ base\ power\ plant.jpg');">
+                        <div class="bg-black/40 p-8 rounded-lg">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Powering Performance Through Innovation</h1>
+                            <p class="mb-6 text-lg">Efficiency engineered for critical energy operations.</p>
+                            <a href="./common-form.html"
+                                class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
+                                in
+                                Touch</a>
+                        </div>
+                    </div>
+                    <div class="carousel relative overflow-hidden h-[85vh]">
+                        <!-- Slides 4 ETP-->
+                        <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
+                            style="background-image:url('./Image/stp_sewage_treatment_plant_in_dhaka_2.jpg');">
+                            <div class="bg-black/40 p-8 rounded-lg">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4">Sustainable Water Engineering Excellence
+                                </h1>
+                                <p class="mb-6 text-lg">Advanced treatment. Responsible discharge.</p>
+                                <a href="./common-form.html"
+                                    class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
+                                    in
+                                    Touch</a>
+                            </div>
+
+                        </div>
+                        <div class="carousel relative overflow-hidden h-[85vh]">
+                            <!-- Slides 5 Another Coal Power plant -->
+                            <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
+                                style="background-image:url('./Image/coal\ base\ power\ plant\ 2.avif');">
+                                <div class="bg-black/40 p-8 rounded-lg">
+                                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Your Partner in
+                                        Engineering Chemistry</h1>
+                                    <p class="mb-6 text-lg">Optimized performance for demanding industries.</p>
+                                    <a href="./common-form.html"
+                                        class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
+                                        in
+                                        Touch</a>
+                                </div>
+                            </div>
+
+
+                            <!-- Arrows -->
+                            <button id="prev"
+                                class="absolute left-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full">❮</button>
+                            <button id="next"
+                                class="absolute right-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full">❯</button>
+
+                            <!-- Dots -->
+                            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-3">
+                                <span class="dot w-3 h-3 bg-white/70 rounded-full cursor-pointer"></span>
+                                <span class="dot w-3 h-3 bg-white/30 rounded-full cursor-pointer"></span>
+                                <span class="dot w-3 h-3 bg-white/30 rounded-full cursor-pointer"></span>
+                                <span class="dot w-3 h-3 bg-white/30 rounded-full cursor-pointer"></span>
+                                <span class="dot w-3 h-3 bg-white/30 rounded-full cursor-pointer"></span>
+                            </div>
+                        </div>
+    </section>
+
+    <!-- ================= PROFESSIONAL CLUB ================= -->
+
+    <section class="py-8 text-center fade-up">
+        <h2 class="text-3xl font-semibold mb-2 text-[#003366] transition-transform duration-300 hover:scale-110">
+            Professional Engineering Solutions
+        </h2>
+        <p class="max-w-3xl mx-auto text-gray-600 text-sm md:text-base">
+            Delivering Reliable Chemical and Water Treatment Innovations driven by Engineering precision, Quality
+            Assurance and Sustainable Performance.
+        </p>
+    </section>
+
+    <!-- ================= ABOUT US ================= -->
+    <section id="about" class="py-8 bg-gray-50 fade-up">
+        <div class="max-w-5xl mx-auto text-center mb-6">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-[#0077c2] mb-1 transition-transform duration-300 hover:scale-110 cursor-pointer">
+                About Us
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base">
+                We are a performance-oriented engineering company providing integrated chemical and technical solutions
+                for Industrial Water Treatment, Boiler and Cooling systems. We ensuring operational efficiency,
+                equipment
+                protection and sustainable performance.
+            </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8 text-center">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300">
+                <div class="relative mx-auto w-20 h-20 mb-2">
+                    <svg class="absolute inset-0 w-full h-full">
+                        <circle cx="40" cy="40" r="35" stroke="#e5e7eb" stroke-width="6" fill="none" />
+                        <circle cx="40" cy="40" r="35" stroke="url(#grad1)" stroke-width="6" fill="none"
+                            stroke-dasharray="220" stroke-dashoffset="50" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#0077c2" />
+                                <stop offset="100%" stop-color="#00bcd4" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center font-semibold text-lg text-[#0077c2]">20+</span>
+                </div>
+                <p class="font-medium text-gray-800 text-sm md:text-base">Years Experience</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300">
+                <div class="relative mx-auto w-20 h-20 mb-2">
+                    <svg class="absolute inset-0 w-full h-full">
+                        <circle cx="40" cy="40" r="35" stroke="#e5e7eb" stroke-width="6" fill="none" />
+                        <circle cx="40" cy="40" r="35" stroke="url(#grad2)" stroke-width="6" fill="none"
+                            stroke-dasharray="220" stroke-dashoffset="30" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00bcd4" />
+                                <stop offset="100%" stop-color="#0077c2" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center font-semibold text-lg text-[#0077c2]">200+</span>
+                </div>
+                <p class="font-medium text-gray-800 text-sm md:text-base">Satisfied Clients</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300">
+                <div class="relative mx-auto w-20 h-20 mb-2">
+                    <svg class="absolute inset-0 w-full h-full">
+                        <circle cx="40" cy="40" r="35" stroke="#e5e7eb" stroke-width="6" fill="none" />
+                        <circle cx="40" cy="40" r="35" stroke="url(#grad3)" stroke-width="6" fill="none"
+                            stroke-dasharray="220" stroke-dashoffset="70" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#0077c2" />
+                                <stop offset="100%" stop-color="#4caf50" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center font-semibold text-lg text-[#0077c2]">30+</span>
+                </div>
+                <p class="font-medium text-gray-800 text-sm md:text-base">Professional Engineer</p>
+            </div>
+        </div>
+
+        <!-- Enhanced About Feature Section -->
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 text-center">
+            <!-- Card 1 -->
+            <div
+                class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg hover:scale-105 transform transition-all duration-500 cursor-pointer group">
+                <div class="relative mx-auto w-24 h-24 mb-4">
+                    <img src="./Image/profesional.jpg" alt="Professional"
+                        class="w-full h-full object-cover rounded-full shadow-md transform group-hover:scale-110 transition-transform duration-500 group-hover:shadow-blue-200">
+                    <div class="absolute inset-0 rounded-full border-2 border-transparent  transition-all duration-500">
+                    </div>
+                </div>
+                <h3
+                    class="text-base font-semibold text-gray-900 mb-1 group-hover:text-[#0077c2] transition-colors duration-300">
+                    Professional
+                </h3>
+                <p class="text-gray-600 text-sm leading-snug group-hover:text-gray-700 transition-colors duration-300">
+                    We operate with international-standard expertise supported by advanced R&D and product testing.
+                    Our technical team ensures consistent performance and reliability.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+                class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg hover:scale-105 transform transition-all duration-500 cursor-pointer group">
+                <div class="relative mx-auto w-24 h-24 mb-4">
+                    <img src="./Image/inovation test time.webp" alt="Quality"
+                        class="w-full h-full object-cover rounded-full shadow-md transform group-hover:scale-110 transition-transform duration-500 group-hover:shadow-blue-200">
+                    <div class="absolute inset-0 rounded-full border-2 border-transparent  transition-all duration-500">
+                    </div>
+                </div>
+                <h3
+                    class="text-lg font-semibold text-gray-800 mb-2 transition-colors duration-500 group-hover:text-[#0077c2]">
+                    Quality
+                </h3>
+                <p
+                    class="text-gray-600 text-sm leading-relaxed transition-colors duration-500 group-hover:text-gray-700">
+                    We deliver high-performance products engineered through stringent quality control, optimized
+                    formulations and continuous process enhancement to surpass industry benchmarks.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+                class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg hover:scale-105 transform transition-all duration-500 cursor-pointer group">
+                <div class="relative mx-auto w-24 h-24 mb-4">
+                    <img src="./Image/ino md1.svg" alt="Innovation"
+                        class="w-full h-full object-cover rounded-full shadow-md transform group-hover:scale-110 transition-transform duration-500 group-hover:shadow-blue-200">
+                    <div class="absolute inset-0 rounded-full border-2 border-transparent  transition-all duration-500">
+                    </div>
+                </div>
+                <h3
+                    class="text-lg font-semibold text-gray-800 mb-2 transition-colors duration-500 group-hover:text-[#0077c2]">
+                    Innovation
+                </h3>
+                <p
+                    class="text-gray-600 text-sm leading-relaxed transition-colors duration-500 group-hover:text-gray-700">
+                    Innovation drives our development. We integrate advanced technologies to deliver
+                    efficient, sustainable water treatment and industrial chemical products.
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+                class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg hover:scale-105 transform transition-all duration-500 cursor-pointer group">
+                <div class="relative mx-auto w-24 h-24 mb-4">
+                    <img src="./Image/reliability f.avif" alt="Reliability"
+                        class="w-full h-full object-cover rounded-full shadow-md transform group-hover:scale-110 transition-transform duration-500 group-hover:shadow-blue-200">
+                    <div class="absolute inset-0 rounded-full border-2 border-transparent  transition-all duration-500">
+                    </div>
+                </div>
+                <h3
+                    class="text-lg font-semibold text-gray-800 mb-2 transition-colors duration-500 group-hover:text-[#0077c2]">
+                    Reliability
+                </h3>
+                <p
+                    class="text-gray-600 text-sm leading-relaxed transition-colors duration-500 group-hover:text-gray-700">
+                    We ensure reliability through consistent product supply, proven quality performance and dedicated
+                    technical support to sustain smooth and efficient plant operations.
+                </p>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- Our cor engineeringServices -->
+
+    <section id="programs" class="bg-gray-50 py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center mb-6 fade-up">
+            <h2 class="text-2xl md:text-3xl font-bold mb-1 text-[#0077c2] 
+             transition-transform duration-300 hover:scale-110 cursor-pointer">
+                Our Core Engineering Excellence
+            </h2>
+            <div class="w-16 h-1 bg-[#0077c2] mx-auto mb-2 rounded-full transition-all duration-300 hover:w-20"></div>
+            <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+                Delivering advanced industrial solutions through precision engineering, technical innovation and
+                unwavering operational integrity.
+            </p>
+        </div>
+
+
+
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6">
+            <!-- System Pre-Commissioning Chemical Cleaning -->
+            <article
+                class="relative rounded-xl overflow-hidden group transform transition duration-500 hover:scale-[1.03] hover:shadow-2xl">
+                <img src="./Image/Chemist with PP cleaning photo.jpg" alt="Junior Program"
+                    class="w-full h-64 md:h-72 object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+                <div class="absolute bottom-6 left-0 p-6 text-white md:bottom-10">
+                    <h3 class="text-2xl font-semibold mb-2">System Pre-Commissioning Chemical Cleaning</h3>
+                    <p class="text-gray-200 text-sm mb-4 max-w-sm">
+                        Comprehensive chemical cleaning and passivation ensuring system integrity, corrosion protection
+                        and readiness before plant startup.
+                    </p>
+                    <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] hover:bg-[#005a99] text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                        Get Offer
+                    </a>
+                </div>
+            </article>
+
+            <!-- Teenager Program -->
+            <article
+                class="relative rounded-xl overflow-hidden group transform transition duration-500 hover:scale-[1.03] hover:shadow-2xl">
+                <img src="./Image/Qualiti chemist.webp" alt="Teenager Program"
+                    class="w-full h-64 md:h-72 object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+                <div class="absolute top-0 left-0 p-6 text-white">
+                    <h3 class="text-2xl font-semibold mb-2">Process Performance Monitoring</h3>
+                    <p class="text-gray-200 text-sm mb-4 max-w-sm">
+                        Data-driven monitoring and optimization of chemical dosing, water quality and heat-exchange
+                        efficiency to maintain peak system performance.
+                    </p>
+                    <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] hover:bg-[#005a99] text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                        Contact Now
+                    </a>
+                </div>
+            </article>
+
+            <!-- Professional Program -->
+            <article
+                class="relative rounded-xl overflow-hidden group md:col-span-2 transform transition duration-500 hover:scale-[1.03] hover:shadow-2xl">
+                <img src="./Image/turbine 1.png" alt="Professional Program"
+                    class="w-full h-72 md:h-96 object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+                <div class="absolute top-0 left-0 p-8 text-white">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-2">Turbine Chemical Cleaning Service</h3>
+                    <p class="text-gray-200 text-sm md:text-base mb-4 max-w-xl">
+                        Precision-engineered turbine cleaning restoring peak efficiency, reliability and lifecycle
+                        performance.
+                    </p>
+                    <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] hover:bg-[#005a99] text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                        Register Now
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- new card start here -->
+    <section id="new-products" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 text-center my-4 fade-up group">
+            <div class="inline-block transform transition-transform duration-500 hover:scale-105">
+                <h2
+                    class="text-2xl md:text-3xl font-bold text-gray-800 tracking-tight mb-1 transition-colors duration-500 group-hover:text-[#00c6a7]">
+                    “Empowering Performance Through Smart Chemistry.” </h2>
+                <p
+                    class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-snug transition-colors duration-500 group-hover:text-[#00a9e0]">
+                    Explore our complete range of advanced Water and Process Treatment Solutions Engineered for
+                    Efficiency, Reliability and Sustainable performance. <br>Discover specialized products across
+                    Boiler, Cooling, RO, Wastewater and All Industrial applications with instant access to detailed
+                    product data sheets. </p>
+                <div class="w-16 h-0.5 bg-[#0077c2] mx-auto mt-3 rounded-full"></div>
+            </div>
+        </div> <!-- Card 1 -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div onclick="window.location.href='./basicchem.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/Chemical ware house.jpg" alt="Product 3"
+                    class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Basic Raw Materials </h3>
+                    <p class="text-gray-500 text-sm mb-3"> High-quality raw materials formulated to support consistent
+                        performance and product reliability across industrial applications. View products and download
+                        data sheets instantly.</p> <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div> <!-- Card 2 -->
+            <div onclick="window.location.href='./ro-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/Industrial-Reverse-Osmosis-Water-Treatment-Facility.jpg" alt="Product 3"
+                    class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Reverse Osmosis (RO) Treatment </h3>
+                    <p class="text-gray-500 text-sm mb-3"> High-performance RO treatment chemicals ensuring membrane
+                        protection and optimal water quality. View products and download data sheets instantly.</p> <a
+                        href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order </a>
+                </div>
+            </div> <!-- Card 3 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/Boiler nice photo.png" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">BOILER CHEMICALS</h3>
+                    <p class="text-gray-500 text-sm mb-3"> Advanced boiler treatment solutions engineered for lasting
+                        performance. View products and download data sheets instantly. </p> <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div> <!-- Card 4 -->
+            <div onclick="window.location.href='./cooling-tower.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/Big Cooling tower .jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Cooling Water Treatment </h3>
+                    <p class="text-gray-500 text-sm mb-3"> Innovative cooling water treatment solutions designed for
+                        efficiency and scale prevention. View products and download data sheets instantly. </p> <a
+                        href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div> <!-- Card 5 -->
+            <div onclick="window.location.href='./waste-water.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/stp_sewage_treatment_plant_in_dhaka_2.jpg" alt="Product 3"
+                    class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Wastewater Treatment <br>(ETP & STP)</h3>
+                    <p class="text-gray-500 text-sm mb-3"> Advanced wastewater treatment solutions engineered for
+                        effective purification, regulatory compliance, and environmental sustainability. View products
+                        and download data sheets instantly. </p> <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div> <!-- Card 6 -->
+            <div onclick="window.location.href='./desalination.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/Chemist with PP cleaning photo.jpg" alt="Product 3"
+                    class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Descaling Chemicals</h3>
+                    <p class="text-gray-500 text-sm mb-3">Descaling Chemicals Powerful descaling formulations designed
+                        to remove tough deposits and restore system efficiency. View products and download data sheets
+                        instantly.</p> <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div> <!-- Card 7 -->
+            <div onclick="window.location.href='./petro-field.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/coal base power plant.jpg" alt="Product 3"
+                    class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Petro Field & Refinery Chemicals</h3>
+                    <p class="text-gray-500 text-sm mb-3"> Advanced chemical formulations engineered to enhance refinery
+                        operations, process efficiency, and equipment protection. View products and download data sheets
+                        instantly..</p> <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div> <!-- Card 8 -->
+            <div onclick="window.location.href='./specialty.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/profesional test meter.png" alt="Product 3"
+                    class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Other Specialty Chemicals</h3>
+                    <p class="text-gray-500 text-sm mb-3"> Tailored specialty chemical solutions designed to meet
+                        diverse industrial needs with precision and reliability. View products and download data sheets
+                        instantly.</p> <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div> <!-- Card 9 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/Qualiti chemist.webp" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Analytical Grade Chemicals </h3>
+                    <p class="text-gray-500 text-sm mb-3"> Ultra-pure analytical reagents engineered for laboratory
+                        accuracy, research integrity, and dependable quality control. View products and download data
+                        sheets instantly</p> <a href="./common-form.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Query </a>
+                </div>
+            </div>
+        </div>
+        </div> <!-- Repeat more product cards below... --> </div>
+    </section>
+
+
+    <!-- product start here -->
+
+    <section id="new-products" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 text-center my-4 fade-up">
+            <div class="inline-block transform transition-transform duration-500 hover:scale-105">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 tracking-tight mb-1">
+                    Our Core Product Portfolio
+                </h2>
+                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-snug">
+                    Advanced chemical solutions engineered for consistent performance, durability, and operational
+                    excellence.
+                </p>
+                <div class="w-16 h-0.5 bg-[#0077c2] mx-auto mt-3 rounded-full"></div>
+            </div>
+        </div>
+
+
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Product Card 1 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>3000</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1000</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DISPERSE 8331</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        High-performance multifunctional boiler treatment in powder form — combining scale and corrosion
+                        inhibition with oxygen scavenging and pH control. </p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+
+
+                </div>
+
+            </div>
+
+            <!-- Product Card 2 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>8369</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>2465</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DISPERSE 8338</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Advanced powder-phase boiler treatment engineered for efficient scale prevention, corrosion
+                        protection, and alkalinity balance in daily operation.
+                    </p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+
+
+                </div>
+
+            </div>
+
+            <!-- Product Card 3 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/7208.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>6987</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>3126</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DISPERSE 7208</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        High-efficiency alkaline conditioning agent designed for coordinated phosphate–pH control,
+                        ensuring scale suppression and system reliability in high-hardness boilers.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/7208.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.9</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>4936</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1647</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DISPERSE 4221</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Integrated boiler treatment blend offering simultaneous scale, corrosion and oxygen control —
+                        formulated for stable operation under variable feedwater conditions.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.3</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>4033</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1138</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR TRI-ACT 1800
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Specialized condensate corrosion inhibitor providing exceptional metal protection and pH
+                        stabilization throughout steam and condensate systems.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 6 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>3600</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1231</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR ELIMIN-OX 708</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        High-reactivity oxygen scavenger engineered for rapid oxygen removal and corrosion prevention in
+                        boiler feed and condensate lines.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 7 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/123.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>1030</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>566</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR Corrosion Inhibitor 123</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Protective pretreatment that forms a stable passivation layer, preventing corrosion during acid
+                        cleaning.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 8 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/2566.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.7</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>980</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>576</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DE-SCALEX 2566
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        High-efficiency liquid descaler for calcium and magnesium scales. Restores heat transfer,
+                        reduces downtime, and improves operational efficiency.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 9 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/2567.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>400</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>220</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DE-SCALEX 2567</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Specialized formulation for silica and stubborn hard-scale removal. Ensures complete system
+                        cleaning and long-term performance protection.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 10 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/8331.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>3.5</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>376</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>160</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DE-SCALEX 2568</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Powder-form descaler formulated for effective removal of mineral scales. Easy to handle,
+                        fast-acting, and ideal for on-site maintenance operations.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 11 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>2.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>60</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>20</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR DE-SCALEX 2569</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Advanced descaling formulation for heavy-duty scale removal. Delivers rapid cleaning action and
+                        corrosion protection in high-pressure boiler systems.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 12 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>1800</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>376</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR TURBO-CLEAN 3501 (Powder Form)
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Concentrated powder cleaner for turbine washing. Effectively removes carbon, oil, and oxide
+                        deposits, restoring turbine efficiency and surface cleanliness.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 13 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.5</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>1345</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>465</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR TURBO-CLEAN 3502 (Liquid Form)</h3>
+                    <p class="text-gray-500 text-sm mb-3">Liquid alkaline cleaner formulated for on-line and off-line
+                        turbine cleaning. Provides rapid
+                        removal of contaminants with safe metal compatibility.
+
+                    </p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 14 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>1435</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>765</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR TURBO-CLEAN 3503 (Liquid Form – Heavy Duty)</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-strength liquid formulation for tough fouling and
+                        hydrocarbon residue removal. Suitable for heavy-duty industrial turbine systems.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 15 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR TURBO-SHIELD 3510 (Corrosion Protector)</h3>
+                    <p class="text-gray-500 text-sm mb-3">Corrosion inhibitor specially designed for turbine cleaning
+                        operations. Forms a temporary protective film on metal surfaces, preventing oxidation and
+                        pitting during maintenance and shutdown periods.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 16 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/7359 .svg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>6547</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>3678</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR OPTITREAT 7359</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-efficiency scale and corrosion inhibitor for cooling
+                        towers. Ensures superior surface protection and long-term operational stability under variable
+                        conditions.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 17 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.5</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>2364</span></span>
+                        <span class="flex items-center gap-1">❤️<span>1012</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR OPTITREAT 449</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Advanced corrosion and scale control solution formulated for industrial cooling systems.
+                        Enhances equipment life and maintains heat transfer efficiency..</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 18 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>200</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>500</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR OPTITREAT 149</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+
+                        Specialized inhibitor for preventing scale and corrosion in open and closed cooling systems.
+                        Designed for consistent protection and energy efficiency.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 19 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/ST 70.svg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.2</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>3000</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1500</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR OPTITREAT DT 388
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        pH controller for Cooling Tower Water.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 20  -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/ST 70.svg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.2</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>3000</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1500</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR OPTITREAT DT 88
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">pH controller for Cooling Tower Water.
+                    </p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 21  -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/ST 70.svg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.2</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>3000</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1500</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR BIOCIDE ST-40
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Powerful oxidizing biocide for effective control of bacteria, algae, and slime in cooling water
+                        systems. Maintains clean and efficient operation.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 22 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/ST 70.svg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>2000</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>800</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR BIOCIDE ST-70</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        High-strength oxidizing biocide providing rapid microbial control. Ideal for periodic shock
+                        dosing in heavily contaminated cooling systems.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 23 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>3.5</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>1200</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>60</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR BIOCIDE OX</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Versatile oxidizing disinfectant designed to combat microbial growth and biofilm formation.
+                        Ensures system cleanliness and reliability.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 24 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.2</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>2200</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>550</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR BIOCIDE 90001</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Premium non-oxidizing biocide offering sustained microbial protection without affecting system
+                        metallurgy. Suitable for continuous treatment..</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 25 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/123.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>4.6</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>2300</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>1500</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR BIOCIDE F-501</h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Non-oxidizing biocide formulated for broad-spectrum control of bacteria and fungi. Safe for use
+                        in sensitive or mixed-material systems.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 26 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>2300</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>900</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR BIOCIDE 7330
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Concentrated non-oxidizing biocide providing effective long-term microbial suppression in
+                        cooling circuits. Compatible with diverse water chemistries.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 27 -->
+            <div onclick="window.location.href='./boiler-water-treatment.html'"
+                class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition cursor-pointer relative">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>2300</span></span>
+                        <span class="flex items-center gap-1">❤️ <span>900</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR BIOCIDE 7330
+                    </h3>
+                    <p class="text-gray-500 text-sm mb-3">
+                        Concentrated non-oxidizing biocide providing effective long-term microbial suppression in
+                        cooling circuits. Compatible with diverse water chemistries.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Place Order
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!-- Repeat more product cards below... -->
+        </div>
+
+
+    </section>
+
+    <!-- FAQ client -->
+
+    <section id="faq" py-16 bg-gray-50>
+        <div class="max-w-4xl mx-auto px-4 py-3">
+            <div class="text-center group transition-all duration-300 hover:scale-[1.01]">
+                <h2
+                    class="text-[1.75rem] md:text-[2rem] font-extrabold text-gray-800 mb-1 tracking-tight group-hover:text-[#0077c2] transition-colors duration-300">
+                    Client Inquiries
+                </h2>
+                <p
+                    class="text-gray-500 text-[0.95rem] md:text-base max-w-lg mx-auto leading-snug group-hover:text-gray-700 transition-colors duration-300">
+                    We’re here to support your technical and commercial inquiries with precision-driven insights and
+                    responsive solutions.
+                </p>
+                <div
+                    class="w-10 h-[2px] bg-[#0077c2] mx-auto mt-2 rounded-full group-hover:w-14 transition-all duration-300">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- FAQ Container -->
+        <div class="bg-white shadow-md rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-10">
+
+            <!-- Left Image -->
+            <div class="w-full md:w-1/2">
+                <img src="./Image/FAQ.avif" alt="Laboratory Equipment"
+                    class="w-full h-80 object-cover rounded-2xl shadow-md hover:scale-105 transition-transform duration-500 ease-in-out">
+            </div>
+
+            <!-- Right FAQ -->
+            <div class="w-full md:w-1/2 space-y-3">
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Our Equipment
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        We provide top-quality industrial and laboratory equipment for precise performance and
+                        reliability.
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Technical Support
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        Our technical team ensures prompt support and guidance for smooth operations and
+                        troubleshooting.
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Product Customization
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        We offer tailored solutions to meet your specific operational or laboratory requirements.
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Delivery & Logistics
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        We ensure timely and secure delivery of all products with reliable logistics partners.
+                    </div>
+                </div>
+
+                <div>
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Pricings
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        Competitive pricing structure designed to deliver top value for your investment.
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Accordion Script -->
+        <script>
+            const accordionButtons = document.querySelectorAll(".accordion-btn");
+
+            accordionButtons.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector("span");
+
+                    // Close all others
+                    document.querySelectorAll(".accordion-content").forEach((item) => {
+                        if (item !== content) item.classList.add("hidden");
+                    });
+                    document.querySelectorAll(".accordion-btn span").forEach((ic) => {
+                        if (ic !== icon) ic.textContent = "+";
+                    });
+
+                    // Toggle clicked one
+                    content.classList.toggle("hidden");
+                    icon.textContent = content.classList.contains("hidden") ? "+" : "–";
+                });
+            });
+        </script>
+    </section>
+
+    <!-- get in touch -->
+    <section class="py-12 bg-gray-50" id="contact">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Get In Touch</h2>
+            <p class="text-center text-gray-600 mb-12">
+                Reach out to us for product information, technical support, or business inquiries.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div
+                        class="p-6 bg-white rounded-xl shadow-md border border-gray-200 flex items-center gap-4 hover:shadow-lg transition-all duration-300">
+                        <!-- WhatsApp Icon -->
+                        <a href="https://wa.me/8801711777803" target="_blank"
+                            class="flex items-center justify-center w-12 h-12 bg-green-100 text-green-600 rounded-full transform transition-all duration-300 hover:scale-110 hover:bg-green-200">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        </a>
+
+                        <!-- WhatsApp Info -->
+                        <div>
+                            <p class="text-sm text-gray-500">WhatsApp</p>
+                            <a href="https://wa.me/8801711777803" target="_blank"
+                                class="text-lg font-semibold text-gray-900 hover:text-green-700 transition-colors duration-300">
+                                +88 01711 777 803
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+                    <div
+                        class="p-6 bg-white rounded-xl shadow-md border border-gray-200 flex items-center gap-4 hover:shadow-lg transition-all duration-300">
+                        <!-- Email Icon -->
+                        <a href="mailto:sales@carbolabs.com.bd"
+                            class="flex items-center justify-center w-12 h-12 bg-yellow-100 text-yellow-600 rounded-full transform transition-all duration-300 hover:scale-110 hover:bg-yellow-200">
+                            <i class="fa-solid fa-envelope text-2xl"></i>
+                        </a>
+
+                        <!-- Email Info -->
+                        <div>
+                            <p class="text-sm text-gray-500">Email</p>
+                            <a href="mailto:sales@carbolabs.com.bd"
+                                class="text-lg font-semibold text-gray-900 hover:text-yellow-700 transition-colors duration-300">
+                                sales@carbolabs.com.bd
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div
+                        class="p-6 bg-white rounded-xl shadow-md border border-gray-200 flex items-center gap-4 hover:shadow-lg transition-all duration-300">
+                        <!-- Location Icon -->
+                        <a href="https://maps.google.com/?q=107/1 Old Airport Road, Bijoy Sarani, Tejgaon, Dhaka-1215, Bangladesh"
+                            target="_blank"
+                            class="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-full transform transition-all duration-300 hover:scale-110 hover:bg-blue-200">
+                            <i class="fa-solid fa-location-dot text-2xl"></i>
+                        </a>
+
+                        <!-- Address Info -->
+                        <div>
+                            <p class="text-sm text-gray-500">Office Address</p>
+                            <a href="https://maps.google.com/?q=107/1 Old Airport Road, Bijoy Sarani, Tejgaon, Dhaka-1215, Bangladesh"
+                                target="_blank"
+                                class="text-lg font-semibold text-gray-900 hover:text-blue-700 transition-colors duration-300">
+                                107/1 Old Airport Road, Bijoy Sarani, Tejgaon, Dhaka-1215.
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contactForm" action="https://formspree.io/f/mvgveerv" method="POST"
+                    class="bg-white p-8 rounded-2xl shadow space-y-4 relative">
+
+                    <!-- Success message placeholder -->
+                    <div id="successMessage"
+                        class="hidden absolute -top-10 left-0 right-0 bg-green-500 text-white text-center py-2 rounded-lg">
+                        ✅ Message successfully sent!
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" name="name" placeholder="Your Name" required
+                            class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+                        <input type="email" name="email" placeholder="Your Email" required
+                            class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" name="subject" placeholder="Subject" required
+                            class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+                        <input type="text" name="phone" placeholder="Phone Number" required
+                            class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+                    </div>
+
+                    <textarea name="message" rows="5" placeholder="Write your message..." required
+                        class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400"></textarea>
+
+                    <button type="submit"
+                        class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SOCIAL MEDIA ================= -->
+    <section class="py-16 px-6 bg-white fade-up">
+        <div class="max-w-7xl mx-auto text-center mb-10">
+            <h2 class="text-3xl font-semibold mb-3">Connect With Us</h2>
+            <p class="text-gray-600">Stay updated and follow us on social media.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/CarbolabsCorporation?mibextid=wwXIfr&mibextid=wwXIfr" target="_blank"
+                class="group bg-gray-50 p-6 rounded-xl shadow text-center transition transform hover:scale-[1.04] hover:-translate-y-1 hover:bg-[#1877F2] duration-300">
+                <svg class="w-10 h-10 mx-auto mb-3 fill-[#1877F2] group-hover:fill-white transition"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path
+                        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.06 44.38-121.06 124.72V195.3H22.89V288h81.41v224h100.2V288z" />
+                </svg>
+                <h3 class="text-lg font-semibold text-[#1877F2] group-hover:text-white transition">Facebook</h3>
+            </a>
+
+            <!-- Instagram (modern gradient look using flat color) -->
+            <a href="https://www.instagram.com/carbolabs?igsh=NXB3bjAyajBvd2Zm&utm_source=qr" target="_blank"
+                class="group bg-gray-50 p-6 rounded-xl shadow text-center transition transform hover:scale-[1.04] hover:-translate-y-1 hover:bg-[#E4405F] duration-300">
+                <svg class="w-10 h-10 mx-auto mb-3 fill-[#E4405F] group-hover:fill-white transition"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54.22,54.22,0,0,0-30.42-30.42c-21-8.29-70.92-6.39-94.29-6.39s-73.27-1.9-94.29,6.39a54.22,54.22,0,0,0-30.42,30.42c-8.29,21-6.39,70.92-6.39,94.29s-1.9,73.27,6.39,94.29a54.22,54.22,0,0,0,30.42,30.42c21,8.29,70.92,6.39,94.29,6.39s73.27,1.9,94.29-6.39a54.22,54.22,0,0,0,30.42-30.42c8.29-21,6.39-70.92,6.39-94.29S356.97,182.63,348.68,161.61ZM224,338a82,82,0,1,1,82-82A82,82,0,0,1,224,338Zm85.33-148a19.2,19.2,0,1,1,19.2-19.2A19.19,19.19,0,0,1,309.33,190Z" />
+                </svg>
+                <h3 class="text-lg font-semibold text-[#E4405F] group-hover:text-white transition">Instagram</h3>
+            </a>
+
+
+            <!-- X (formerly Twitter) -->
+            <a href="https://x.com/asadujjaman97?s=21" target="_blank"
+                class="group bg-gray-50 p-6 rounded-xl shadow text-center transition transform hover:scale-[1.04] hover:-translate-y-1 hover:bg-black duration-300">
+                <svg class="w-10 h-10 mx-auto mb-3 fill-black group-hover:fill-white transition"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                        d="M389.2 48H466L302.7 224.2 493 464H346.6L239.5 330.6 116.9 464H40L212.4 275.7 30 48h151.1l96.2 121.7L389.2 48z" />
+                </svg>
+                <h3 class="text-lg font-semibold text-black group-hover:text-white transition">X</h3>
+            </a>
+
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/company/carbolabs/" target="_blank"
+                class="group bg-gray-50 p-6 rounded-xl shadow text-center transition transform hover:scale-[1.04] hover:-translate-y-1 hover:bg-[#0077B5] duration-300">
+                <svg class="w-10 h-10 mx-auto mb-3 fill-[#0077B5] group-hover:fill-white transition"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M100.3 448H7.4V148.9h92.9V448zM53.8 108.1A53.8 53.8 0 11107.6 54 53.8 53.8 0 0153.8 108.1zM447.9 448H355V302.4c0-34.7-.7-79.3-48.3-79.3-48.4 0-55.8 37.8-55.8 76.9V448h-92.9V148.9h89.1v40.8h1.3c12.4-23.4 42.5-48.3 87.4-48.3 93.4 0 110.7 61.5 110.7 141.3V448z" />
+                </svg>
+                <h3 class="text-lg font-semibold text-[#0077B5] group-hover:text-white transition">LinkedIn</h3>
+            </a>
+
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@CarbolabsCorporation" target="_blank"
+                class="group bg-gray-50 p-6 rounded-xl shadow text-center transition transform hover:scale-[1.04] hover:-translate-y-1 hover:bg-[#FF0000] duration-300">
+                <svg class="w-10 h-10 mx-auto mb-3 fill-[#FF0000] group-hover:fill-white transition"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path
+                        d="M549.655 124.083a68.412 68.412 0 00-48.15-48.29C458.26 64.501 288 64.501 288 64.501s-170.26 0-213.505 11.292a68.412 68.412 0 00-48.15 48.29C16.05 167.34 16.05 256.001 16.05 256.001s0 88.66 10.295 131.918a68.412 68.412 0 0048.15 48.289C117.74 448.002 288 448.002 288 448.002s170.26 0 213.505-11.292a68.412 68.412 0 0048.15-48.289c10.295-43.257 10.295-131.918 10.295-131.918s0-88.661-10.295-131.918zM232 338.49V173.51l142 82.49-142 82.49z" />
+                </svg>
+                <h3 class="text-lg font-semibold text-[#FF0000] group-hover:text-white transition">YouTube</h3>
+            </a>
+
+
+        </div>
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-gradient-to-r from-gray-900 via-slate-900 to-gray-800 text-gray-300 py-16 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 fade-up">
+
+            <!-- About -->
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-semibold text-white mb-4">About Carbolabs COrporation </h3>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                    Carbolabs Corporation delivers quality industrial and business solutions with innovation and
+                    integrity.
+                </p>
+                <!-- QR Code -->
+                <div class="flex items-center justify-center md:justify-start">
+                    <a href="https://carbolabs.com.bd/" target="_blank" rel="noopener noreferrer"
+                        class="block hover:scale-105 transition-transform">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://carbolabs.com.bd/"
+                            alt="Carbolabs QR Code" class="rounded-lg shadow-lg border border-gray-700 bg-white p-1">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#hero" class="hover:text-[#00aaff] transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-[#00aaff] transition">About</a></li>
+                    <li><a href="#programs" class="hover:text-[#00aaff] transition">Programs</a></li>
+                    <li><a href="#faq" class="hover:text-[#00aaff] transition">FAQ</a></li>
+                    <li><a href="./common-form.html" class="hover:text-[#00aaff] transition">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-semibold text-white mb-4">Contact Info</h3>
+                <ul class="space-y-2">
+                    <li>
+                        📍
+                        <a href="https://maps.google.com/?q=107/1+Old+Airport+Road,+Bijoy+Sarani,+Awlad+Hossain+Market,+Tejgaon,+Dhaka-1215"
+                            target="_blank" class="hover:text-[#00aaff] transition underline-offset-4 hover:underline">
+                            107/1 Old Airport Road, Bijoy Sarani, Awlad Hossain Market, Tejgaon, Dhaka-1215
+                        </a>
+                    </li>
+                    <li>
+                        📞
+                        <a href="tel:+8801234567890" class="hover:text-[#00aaff] transition hover:underline">
+                            +88 01711 777 803
+                        </a>
+                    </li>
+                    <li>
+                        ✉️
+                        <a href="mailto:info@zulfa.com.bd" class="hover:text-[#00aaff] transition hover:underline">
+                            info@carbolabs.com.bd
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="text-center mt-12 border-t border-gray-700 pt-6 text-gray-500">
+            <p>&copy; 2025 Carbolabs Corporation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- ================= SCRIPTS ================= -->
+    <script>
+        // Hero auto-slide JS
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        let current = 0;
+
+        function showSlide(index) {
+            slides.forEach((s, i) => s.classList.toggle('hidden', i !== index));
+            dots.forEach((d, i) => d.classList.toggle('bg-white', i === index));
+            dots.forEach((d, i) => d.classList.toggle('bg-white/30', i !== index));
+        }
+
+        document.getElementById('next').onclick = () => { current = (current + 1) % slides.length; showSlide(current); };
+        document.getElementById('prev').onclick = () => { current = (current - 1 + slides.length) % slides.length; showSlide(current); };
+        dots.forEach((dot, i) => dot.addEventListener('click', () => { current = i; showSlide(current); }));
+
+        setInterval(() => { current = (current + 1) % slides.length; showSlide(current); }, 5000);
+        showSlide(current);
+
+        // Scroll fade-up animation
+        const fadeEls = document.querySelectorAll('.fade-up');
+        function onScroll() {
+            fadeEls.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) el.classList.add('show');
+            });
+        }
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+    </script>
+
+    <script>
+        const toggle = document.getElementById('search-toggle');
+        const box = document.getElementById('search-box');
+        const input = document.getElementById('search-input');
+        const goBtn = document.getElementById('search-btn');
+
+        // Show/hide search box
+        toggle.addEventListener('click', () => {
+            box.classList.toggle('hidden');
+            input.focus();
+        });
+
+        // Function to perform the search
+        function performSearch() {
+            const query = input.value.trim().toLowerCase();
+            if (!query) return;
+
+            // Try to find a section with matching ID or heading text
+            const section = [...document.querySelectorAll('section, div, h1, h2, h3')]
+                .find(el => (el.id && el.id.toLowerCase().includes(query)) ||
+                    (el.textContent.toLowerCase().includes(query)));
+
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                box.classList.add('hidden');
+                input.value = '';
+            } else {
+                alert('No matching section found.');
+            }
+        }
+
+        goBtn.addEventListener('click', performSearch);
+        input.addEventListener('keypress', e => {
+            if (e.key === 'Enter') performSearch();
+        });
+    </script>
+    <script>
+        (function () {
+            const productBtn = document.getElementById('product-btn');
+            const productMenu = document.getElementById('product-menu');
+            // Fix for mobile: show menu when nav is opened
+            if (window.innerWidth <= 768) {
+                productMenu.classList.add('hidden');
+            }
+
+            if (!productBtn || !productMenu) return;
+
+            function openMenu() {
+                productMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none', 'hidden');
+                productMenu.classList.add('opacity-100', 'scale-100');
+                productBtn.setAttribute('aria-expanded', 'true');
+            }
+            function closeMenu() {
+                productMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none', 'hidden');
+                productMenu.classList.remove('opacity-100', 'scale-100');
+                productBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            // Desktop hover: small delay so it doesn't flicker when moving mouse
+            let hoverTimer;
+            productBtn.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimer);
+                openMenu();
+            });
+            productBtn.addEventListener('mouseleave', () => {
+                hoverTimer = setTimeout(() => closeMenu(), 150);
+            });
+            productMenu.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimer);
+                openMenu();
+            });
+            productMenu.addEventListener('mouseleave', () => {
+                hoverTimer = setTimeout(() => closeMenu(), 150);
+            });
+
+            // Mobile / touch: toggle on click/touchstart
+            productBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isOpen = productMenu.classList.contains('pointer-events-none') === false;
+                isOpen ? closeMenu() : openMenu();
+            });
+            // also support touchstart to be snappy on some devices
+            productBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const isOpen = productMenu.classList.contains('pointer-events-none') === false;
+                isOpen ? closeMenu() : openMenu();
+            }, { passive: false });
+
+            // close when clicked outside
+            document.addEventListener('click', (e) => {
+                if (!productBtn.contains(e.target) && !productMenu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            // close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+
+        })();
+
+    </script>
+    <script>
+        document.getElementById('mobile-product-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-product-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const successMsg = document.getElementById("successMessage");
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    successMsg.classList.remove("hidden");
+                    form.reset();
+
+                    // Hide success message after 3 seconds
+                    setTimeout(() => {
+                        successMsg.classList.add("hidden");
+                    }, 3000);
+                } else {
+                    alert("Something went wrong! Please try again.");
+                }
+            } catch (error) {
+                alert("Network error. Please check your connection.");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+    #product-menu {
+        position: static !important;
+        box-shadow: none !important;
+        width: 100% !important;
+    }
+}
+
+/* --- Fix carousel button click issue without hiding indicators --- */
+.carousel-slide {
+    pointer-events: none;
+    /* Prevent hidden slides from blocking clicks */
+}
+
+.carousel-slide:not(.hidden) {
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* Ensure arrows and indicators remain clickable */
+.carousel button,
+.carousel .dot {
+    pointer-events: auto !important;
+    z-index: 20;
+}
+
+/* --- Ensure bottom carousel dots are always visible and clickable --- */
+.carousel>div.absolute.bottom-5 {
+    z-index: 30 !important;
+    pointer-events: auto !important;
+}
