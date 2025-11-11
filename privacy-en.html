@@ -1,6 +1,5 @@
 <!DOCTYPE htmlč <html lang="en">
 
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -204,222 +203,53 @@
     </script>
 
     <!-- Product Grid -->
-    <main class="container mx-auto px-6 py-12 mt-12">
-
-        <div
-            class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col items-center justify-center p-6 mb-10">
-
-            <h2 class="text-4xl md:text-6xl font-bold mb-6 hover:text-[#0077c2] transition text-center">
-                Basic
-                Raw
-                Materials
-            </h2>
-
-            <a href="./index.html" class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">
-                Back To Home page
-            </a>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
-            <!-- Product 1 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/soda ash.jpg" alt="Soda Ash"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Soda Ash</h3>
-                    <p class="text-gray-600 text-sm flex-grow"> Industrial Grade Commercial Grade
-                    </p>
-                    <button onclick="openForm('pdfs/TDS-Soda-ash.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
+    <!-- <main class="bg-gray-50 min-h-screen py-10"> -->
+    <!-- <main class="bg-gray-50 min-h-screen py-10 mt-24"> -->
+    <main class="bg-gray-50 min-h-screen pt-28 pb-10">
+        <div class="container mx-auto px-6 relative">
+            <!-- 🌐 Language Switch Buttons -->
+            <div class="absolute top-4 right-8 flex gap-3">
+                <a href="privacy-en.html"
+                    class="border border-gray-400 px-4 py-2 rounded-md hover:bg-gray-200 transition">English</a>
+                <a href="privacy-bn.html"
+                    class="border border-gray-400 px-4 py-2 rounded-md hover:bg-gray-200 transition">বাংলা</a>
             </div>
 
-            <!-- Product 2 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Caustic Soda"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Caustic Soda (NaOH)</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-Caustic-Soda.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
+            <!-- 💙 Page Header -->
+            <section class="bg-[#e8e8fa] py-10 px-10 rounded-xl flex justify-between items-center">
+                <h1 class="text-3xl md:text-4xl font-semibold tracking-widest text-gray-800">PRIVACY POLICY</h1>
+            </section>
 
-            <!-- Product 3 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tri-Poly-Phosphate
-                    </h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade.</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 4 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Sulphite</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade
-                    </p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 5 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 6 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 7 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 8 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow"></p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 9 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 10 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 11 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
-            <!-- Product 12 -->
-            <div
-                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
-                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/sample-product.jpg" alt="Sodium Tripolyphosphate"
-                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
-                </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">Sodium Tripolyphosphate</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Industrial Grade Commercial Grade</p>
-                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
-                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
-                        Data Sheet
-                    </button>
-                </div>
-            </div>
+            <!-- 📜 Privacy Content -->
+            <article class="bg-white rounded-xl shadow-md p-8 leading-relaxed text-gray-700">
+                <p class="mb-4"><strong>Last updated:</strong> 11 November 2025</p>
 
-            <!-- Add more product cards (up to 12–18 as you said) following this pattern -->
+                <h2 class="text-xl font-semibold mt-6 mb-2">1. Introduction</h2>
+                <p>Carbolabs Corporation (“we”, “us”, “our”) is committed to protecting your privacy and ensuring the
+                    security of your personal information. This Privacy Policy explains what information we collect, how
+                    we
+                    use it, and your rights.</p>
+
+                <h2 class="text-xl font-semibold mt-6 mb-2">2. Information We Collect</h2>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li>Information you provide directly — name, email, phone, and company info via forms.</li>
+                    <li>Automatically collected data like IP address and browser details.</li>
+                    <li>Technical documents (PDFs) downloaded upon request.</li>
+                </ul>
+
+                <h2 class="text-xl font-semibold mt-6 mb-2">3. Use of Information</h2>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li>Respond to inquiries or requests</li>
+                    <li>Improve our services</li>
+                    <li>Ensure legal compliance</li>
+                </ul>
+
+                <h2 class="text-xl font-semibold mt-6 mb-2">4. Contact Us</h2>
+                <p>Email: <a href="mailto:info@carbolabs.com.bd"
+                        class="text-blue-600 underline">info@carbolabs.com.bd</a>
+                </p>
+                <p class="mt-6 text-gray-600">© 2025 Carbolabs Corporation. All rights reserved.</p>
+            </article>
         </div>
     </main>
 
@@ -542,7 +372,7 @@
             </p>
         </div>
         <footer class="text-center py-6 text-sm text-gray-500">
-            <a href="privacy-en.html" class="hover:text-[#0077c2]">Privacy Policy</a>
+            <a href="privacy-en.html" class="hover:underline hover:text-[#0077c2]">Privacy Policy</a>
         </footer>
     </footer>
     <script>
