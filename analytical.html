@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carbolabs Corporation</title>
+    <link rel="shortcut icon" href="./Image/Carbolabs logo for web.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+            <!-- Left: Logo + Name -->
+            <div class="flex items-center space-x-3">
+                <a href="#hot-products" class="flex items-center">
+                    <img src="./Image/carbos.svg" alt="Carbolabs Logo"
+                        class="h-14 w-auto transition-transform duration-300 hover:scale-105">
+                </a>
+                <span
+                    class="font-semibold text-lg text-[#0077c2] inline-block transform transition-transform duration-300 hover:scale-110 hover:text-[#005b99]">
+                    Carbolabs Corporation
+                </span>
+            </div>
+
+            <!-- Hamburger Button -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6 font-medium">
+                <li><a href="./index.html" class="hover:text-[#0077c2]">Home</a></li>
+                <li><a href="./index.html" class="hover:text-[#0077c2]">About</a></li>
+                <!-- ✅ Animated Products dropdown (desktop + mobile) -->
+                <li class="relative">
+                    <!-- PRODUCTS DROPDOWN (drop this into your nav where Products was) -->
+                <li class="relative" style="min-width:0;">
+                    <button id="product-btn" aria-expanded="false"
+                        class="flex items-center gap-2 hover:text-[#0077c2] transition focus:outline-none">
+                        Products
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <!-- menu — positioned absolutely so it is not clipped; z-index high so clickable -->
+                    <ul id="product-menu"
+                        class="absolute left-0 mt-2 w-64 bg-white shadow-xl rounded-lg opacity-0 scale-95 pointer-events-none transition-all duration-200 ease-out z-[9999]"
+                        style="top:100%; transform-origin: top left;">
+                        <li><a href="./basicchem.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-t-lg">Basic
+                                Raw
+                                Materials</a></li>
+                        <li><a href="ro-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">RO Water
+                                Treatment
+                                Chemicals</a></li>
+                        <li><a href="boiler-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler
+                                Water Treatment
+                                Chemicals</a></li>
+                        <li><a href="cooling-tower.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower
+                                Treatment
+                                Chemicals</a></li>
+                        <li><a href="waste-water.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Waste
+                                Water Chemicals</a></li>
+                        <li><a href="./analytical.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Precision
+                                Analytical</a>
+                        </li>
+                        <li><a href="petro-field.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Petro
+                                Field Refinery Chemicals</a></li>
+                        <li><a href="specialty.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-b-lg">Other
+                                Specialty
+                                Chemicals</a></li>
+                    </ul>
+                </li>
+                <li><a href="./index.html" class="hover:text-[#0077c2]">Programs</a></li>
+                <li><a href="./index.html" class="hover:text-[#0077c2]">FAQ</a></li>
+                <li><a href="./index.html" class="hover:text-[#0077c2]">Contact</a></li>
+            </ul>
+
+            <!-- Right Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <!-- Search Button -->
+                <button id="search-toggle" class="p-2 hover:bg-gray-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+
+                <!-- Hidden Search Box -->
+                <div id="search-box"
+                    class="hidden absolute right-6 top-16 bg-white border border-gray-300 shadow-lg rounded-lg p-3 flex items-center space-x-2">
+                    <input id="search-input" type="text" placeholder="Type to search..."
+                        class="border rounded-lg p-2 w-64 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    <button id="search-btn" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700">
+                        Go
+                    </button>
+                </div>
+
+                <a href="./common-form.html"
+                    class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">
+                    Get Quote
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <ul class="flex flex-col items-center space-y-3 py-4 font-medium">
+                <li><a href="./index.html" class="hover:text-[#0077c2]">Home</a></li>
+                <li><a href="./index.html" class="hover:text-[#0077c2]">About</a></li>
+                <!-- <li><a href="#new-products" class="hover:text-[#0077c2]">Product</a></li> -->
+                <li class="w-full text-center">
+                    <button id="mobile-product-btn"
+                        class="w-full flex justify-center items-center gap-2 py-2 hover:text-[#0077c2] transition">
+                        Products
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <!-- hidden submenu -->
+                    <ul id="mobile-product-menu" class="hidden flex-col space-y-1 mt-1">
+                        <li><a href="./basicchem.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Basic
+                                Raw Materials</a></li>
+                        <li><a href="ro-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">R O Water Treatment</a></li>
+                        <li><a href="boiler-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler Water Treatment</a>
+                        </li>
+                        <li><a href="cooling-tower.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower Treatment</a>
+                        </li>
+                        <li><a href="waste-water.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Waste
+                                Water Chemicals</a></li>
+                        <li><a href="analytical.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Precision
+                                Analytical</a>
+                        </li>
+                        <li><a href="petro-field.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Petro
+                                Field Refinery</a></li>
+                        <li><a href="specialty.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Other
+                                Specialty Chemicals</a></li>
+                    </ul>
+                </li>
+
+
+                <li><a href="./index.html" class="hover:text-[#0077c2]">Programs</a></li>
+                <li><a href="./index.html" class="hover:text-[#0077c2]">FAQ</a></li>
+                <li><a href="./index.html" class="hover:text-[#0077c2]">Contact</a></li>
+                <li>
+                    <a href="./common-form.html"
+                        class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">
+                        Get Quote
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+
+
+    <!-- Product Grid -->
+    <main class="container mx-auto px-6 py-12 mt-12">
+        <div
+            class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col items-center justify-center p-6 mb-10">
+
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 hover:text-[#0077c2] transition text-center">
+                Desalination Chemicals
+            </h2>
+
+            <a href="./index.html" class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">
+                Back To Home page
+            </a>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+
+            <!-- Product 1 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/8331.jpg" alt="Soda Ash"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DISPERSE 8331</h3>
+                    <p class="text-gray-600 text-sm flex-grow">High-performance multifunctional boiler treatment in
+                        powder form — combining scale and corrosion
+                        inhibition with oxygen scavenging and pH control.
+                    </p>
+                    <button onclick="openForm('pdfs/ASR DISPERSE 8338.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/8331.jpg" alt="Caustic Soda"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DISPERSE 8338</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Advanced powder-phase boiler treatment engineered for
+                        efficient scale prevention, corrosion
+                        protection, and alkalinity balance in daily operation. </p>
+                    <button onclick="openForm('pdfs/ASR DISPERSE 8338.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/7208.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DISPERSE 7208
+                    </h3>
+                    <p class="text-gray-600 text-sm flex-grow"> IHigh-efficiency alkaline conditioning agent designed
+                        for coordinated phosphate–pH control,
+                        ensuring scale suppression and system reliability in high-hardness boilers.</p>
+                    <button onclick="openForm('pdfs/ASR DISPERSE 7208.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/4221.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DISPERSE 4221</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Integrated boiler treatment blend offering simultaneous
+                        scale, corrosion and oxygen control —
+                        formulated for stable operation under variable feedwater conditions.
+                    </p>
+                    <button onclick="openForm('pdfs/ASR DISPERSE 4221.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 5 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/4221.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR TRI-ACT 1800</h3>
+                    <p class="text-gray-600 text-sm flex-grow">pecialized condensate corrosion inhibitor providing
+                        exceptional metal protection and pH
+                        stabilization throughout steam and condensate systems.</p>
+                    <button onclick="openForm('pdfs/PDS of ASR Tri-ACT 1800.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 6 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/4221.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR ELIMIN-OX 708</h3>
+                    <p class="text-gray-600 text-sm flex-grow">High-reactivity oxygen scavenger engineered for rapid
+                        oxygen removal and corrosion prevention in
+                        boiler feed and condensate lines.</p>
+                    <button onclick="openForm('pdfs/PDS of  ASR ELIMIN-OX 780.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 7 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/123.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR Corrosion Inhibitor 123
+                    </h3>
+                    <p class="text-gray-600 text-sm flex-grow">Protective pretreatment that forms a stable passivation
+                        layer, preventing corrosion during acid
+                        cleaning.</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 8 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2566.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DE-SCALEX 2566</h3>
+                    <p class="text-gray-600 text-sm flex-grow">High-efficiency liquid descaler for calcium and magnesium
+                        scales. Restores heat transfer,
+                        reduces downtime, and improves operational efficiency.</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 9 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2567.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DE-SCALEX 2567</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Specialized formulation for silica and stubborn
+                        hard-scale removal. Ensures complete system
+                        cleaning and long-term performance protection.</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 10 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/8331.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DE-SCALEX 2568</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Powder-form descaler formulated for effective removal of
+                        mineral scales. Easy to handle,
+                        fast-acting, and ideal for on-site maintenance operations.e</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 11 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2567.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DE-SCALEX 2569</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Advanced descaling formulation for heavy-duty scale
+                        removal. Delivers rapid cleaning action and
+                        corrosion protection in high-pressure boiler systems.</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 12 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2567.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR TURBO-CLEAN 3501 (Powder
+                        Form)</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Concentrated powder cleaner for turbine washing.
+                        Effectively removes carbon, oil, and oxide
+                        deposits, restoring turbine efficiency and surface cleanliness.</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 13 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2567.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR TURBO-CLEAN 3502 (Liquid
+                        Form)</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Liquid alkaline cleaner formulated for on-line and
+                        off-line
+                        turbine cleaning. Provides rapid
+                        removal of contaminants with safe metal compatibility.</p>
+                    <button onclick="openForm('pdfs/TDS-STPP.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 14 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2567.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR TURBO-CLEAN 3503 (Liquid
+                        Form – Heavy Duty)</h3>
+                    <p class="text-gray-600 text-sm flex-grow">CHigh-strength liquid formulation for tough fouling and
+                        hydrocarbon residue removal. Suitable for heavy-duty industrial turbine systems..</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 15 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2567.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR TURBO-SHIELD 3510
+                        (Corrosion Protector)</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Corrosion inhibitor specially designed for turbine
+                        cleaning
+                        operations. Forms a temporary protective film on metal surfaces, preventing oxidation and
+                        pitting during maintenance and shutdown periods.</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+            <!-- Product 16 -->
+            <div
+                class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
+                <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
+                    <img src="./Image/2567.jpg" alt="Sodium Tripolyphosphate"
+                        class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR pH Booster</h3>
+                    <p class="text-gray-600 text-sm flex-grow">Controll the pH</p>
+                    <button onclick="openForm('pdfs/ASR OPTI TREAT 149.pdf')"
+                        class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
+                        Data Sheet
+                    </button>
+                </div>
+            </div>
+
+            <!-- Add more product cards here is 16, following this pattern -->
+        </div>
+    </main>
+
+    <!-- Popup Form -->
+    <div id="formModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50 p-4">
+        <div class="bg-white rounded-xl w-full max-w-md p-6 shadow-lg relative">
+            <h2 class="text-xl font-semibold text-[#0077c2] mb-4">Request Technical Data Sheet</h2>
+            <form id="dataSheetForm" action="https://formspree.io/f/mvgveerv" method="POST" class="space-y-3">
+                <input type="hidden" name="pdfLink" id="pdfLink" />
+                <input type="text" name="name" placeholder="Full Name" required
+                    class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]" />
+                <input type="email" name="email" placeholder="Email" required
+                    class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]" />
+                <input type="text" name="phone" placeholder="Phone Number" required
+                    class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]" />
+                <input type="text" name="company" placeholder="Company Name" required
+                    class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]" />
+                <input type="text" name="designation" placeholder="Designation" required
+                    class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]" />
+                <button type="submit"
+                    class="w-full bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">Submit</button>
+            </form>
+            <button onclick="closeForm()"
+                class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-xl">×</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function openForm(pdfUrl) {
+            document.getElementById('pdfLink').value = pdfUrl;
+            document.getElementById('formModal').classList.remove('hidden');
+        }
+
+        function closeForm() {
+            document.getElementById('formModal').classList.add('hidden');
+        }
+
+        document.getElementById('dataSheetForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const form = event.target;
+            const pdfUrl = document.getElementById('pdfLink').value;
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(() => {
+                closeForm();
+                window.open(pdfUrl, '_blank');
+            }).catch(() => alert('Error submitting form!'));
+        });
+    </script>
+    <footer class="bg-black text-gray-300 py-14 px-6">
+        <div class="text-center space-y-6">
+            <h3 class="text-2xl font-semibold text-white tracking-wide">Connect with Us</h3>
+
+            <!-- Social Media Icons -->
+            <div class="flex justify-center space-x-8 mt-4">
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"
+                    class="hover:scale-110 transition-transform duration-200">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
+                        class="w-10 h-10"
+                        style="filter: invert(32%) sepia(99%) saturate(7475%) hue-rotate(202deg) brightness(96%) contrast(104%);" />
+                </a>
+
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"
+                    class="hover:scale-110 transition-transform duration-200">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
+                        class="w-10 h-10"
+                        style="filter: invert(28%) sepia(79%) saturate(5412%) hue-rotate(320deg) brightness(99%) contrast(101%);" />
+                </a>
+
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"
+                    class="hover:scale-110 transition-transform duration-200">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter"
+                        class="w-10 h-10" style="filter: invert(100%) brightness(200%);" />
+                </a>
+
+                <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"
+                    class="hover:scale-110 transition-transform duration-200">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"
+                        class="w-10 h-10"
+                        style="filter: invert(30%) sepia(97%) saturate(5378%) hue-rotate(357deg) brightness(92%) contrast(108%);" />
+                </a>
+
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"
+                    class="hover:scale-110 transition-transform duration-200">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+                        class="w-10 h-10"
+                        style="filter: invert(35%) sepia(92%) saturate(2167%) hue-rotate(186deg) brightness(98%) contrast(103%);" />
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center mt-10 border-t border-gray-800 pt-6 text-gray-400 text-sm space-y-3">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <a href="https://wa.me/8801711777803" target="_blank"
+                    class="flex items-center gap-2 hover:text-green-500 transition">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>+8801711777803</span>
+                </a>
+                <span class="hidden md:block text-gray-600">|</span>
+
+                <a href="mailto:sales@carbolabs.com.bd" class="flex items-center gap-2 hover:text-blue-400 transition">
+                    <i class="fas fa-envelope text-lg"></i>
+                    <span>sales@carbolabs.com.bd</span>
+                </a>
+                <span class="hidden md:block text-gray-600">|</span>
+
+                <a href="https://www.google.com/maps?q=107/1+Old+Airport+Road,+Bijoy+Sarani,+Tejgaon,+Dhaka-1215"
+                    target="_blank" class="flex items-center gap-2 hover:text-red-400 transition">
+                    <i class="fas fa-map-marker-alt text-lg"></i>
+                    <span>107/1, Old Airport Road, Bijoy Sarani, Tejgaon, Dhaka-1215</span>
+                </a>
+            </div>
+
+            <p class="text-gray-500 pt-4 border-t border-gray-700 mt-5">
+                &copy; 2025 <span class="text-white font-medium">Carbolabs Corporation</span>. All Rights Reserved.
+            </p>
+        </div>
+
+    </footer>
+    <script>
+        (function () {
+            const productBtn = document.getElementById('product-btn');
+            const productMenu = document.getElementById('product-menu');
+            // Fix for mobile: show menu when nav is opened
+            if (window.innerWidth <= 768) {
+                productMenu.classList.add('hidden');
+            }
+
+            if (!productBtn || !productMenu) return;
+
+            function openMenu() {
+                productMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none', 'hidden');
+                productMenu.classList.add('opacity-100', 'scale-100');
+                productBtn.setAttribute('aria-expanded', 'true');
+            }
+            function closeMenu() {
+                productMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none', 'hidden');
+                productMenu.classList.remove('opacity-100', 'scale-100');
+                productBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            // Desktop hover: small delay so it doesn't flicker when moving mouse
+            let hoverTimer;
+            productBtn.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimer);
+                openMenu();
+            });
+            productBtn.addEventListener('mouseleave', () => {
+                hoverTimer = setTimeout(() => closeMenu(), 150);
+            });
+            productMenu.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimer);
+                openMenu();
+            });
+            productMenu.addEventListener('mouseleave', () => {
+                hoverTimer = setTimeout(() => closeMenu(), 150);
+            });
+
+            // Mobile / touch: toggle on click/touchstart
+            productBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isOpen = productMenu.classList.contains('pointer-events-none') === false;
+                isOpen ? closeMenu() : openMenu();
+            });
+            // also support touchstart to be snappy on some devices
+            productBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const isOpen = productMenu.classList.contains('pointer-events-none') === false;
+                isOpen ? closeMenu() : openMenu();
+            }, { passive: false });
+
+            // close when clicked outside
+            document.addEventListener('click', (e) => {
+                if (!productBtn.contains(e.target) && !productMenu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            // close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            // Ensure the menu is not clipped by parent overflow; if parent has overflow hidden,
+            // fallback: move menu to body (uncomment the block below if you still face clipping).
+            /*
+            if (productMenu.getBoundingClientRect().bottom > window.innerHeight ||
+                productMenu.getBoundingClientRect().right > window.innerWidth) {
+              document.body.appendChild(productMenu);
+              const rect = productBtn.getBoundingClientRect();
+              productMenu.style.position = 'absolute';
+              productMenu.style.left = rect.left + 'px';
+              productMenu.style.top = rect.bottom + 'px';
+              productMenu.style.zIndex = '9999';
+            }
+            */
+        })();
+
+    </script>
+    <script>
+        document.getElementById('mobile-product-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-product-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
