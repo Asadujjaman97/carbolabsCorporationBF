@@ -2,6 +2,7 @@
   "name": "carbolabscorporation-assign-3",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "compress-images.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/Asadujjaman97/carbolabsCorporationBF#readme",
   "dependencies": {
+    "chokidar": "^4.0.3",
     "imagemin": "^9.0.1",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
