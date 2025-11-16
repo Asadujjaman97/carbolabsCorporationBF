@@ -625,7 +625,7 @@
 
                 <a href="https://www.google.com/maps?q=107/1+Old+Airport+Road,+Bijoy+Sarani,+Tejgaon,+Dhaka-1215"
                     target="_blank" class="flex items-center gap-2 hover:text-red-400 transition">
-                    <i class="fas fa-map-marker-alt text-lg"></i>
+                    <!-- <i class="fas fa-map-marker-alt text-lg relative top-[1px]"></i> -->
                     <span>107/1, Old Airport Road, Bijoy Sarani, Tejgaon, Dhaka-1215</span>
                 </a>
             </div>
@@ -633,6 +633,9 @@
             <p class="text-gray-500 pt-4 border-t border-gray-700 mt-5">
                 &copy; 2025 <span class="text-white font-medium">Carbolabs Corporation</span>. All Rights Reserved.
             </p>
+        </div>
+
+
         </div>
         <footer class="text-center py-6 text-sm text-gray-500">
             <a href="privacy-en.html" class="hover:underline hover:text-[#0077c2]">Privacy Policy</a>
@@ -703,19 +706,7 @@
                 if (e.key === 'Escape') closeMenu();
             });
 
-            // Ensure the menu is not clipped by parent overflow; if parent has overflow hidden,
-            // fallback: move menu to body (uncomment the block below if you still face clipping).
-            /*
-            if (productMenu.getBoundingClientRect().bottom > window.innerHeight ||
-                productMenu.getBoundingClientRect().right > window.innerWidth) {
-              document.body.appendChild(productMenu);
-              const rect = productBtn.getBoundingClientRect();
-              productMenu.style.position = 'absolute';
-              productMenu.style.left = rect.left + 'px';
-              productMenu.style.top = rect.bottom + 'px';
-              productMenu.style.zIndex = '9999';
-            }
-            */
+
         })();
 
     </script>

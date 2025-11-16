@@ -630,7 +630,6 @@
 
                 <a href="https://www.google.com/maps?q=107/1+Old+Airport+Road,+Bijoy+Sarani,+Tejgaon,+Dhaka-1215"
                     target="_blank" class="flex items-center gap-2 hover:text-red-400 transition">
-                    <i class="fas fa-map-marker-alt text-lg"></i>
                     <span>107/1, Old Airport Road, Bijoy Sarani, Tejgaon, Dhaka-1215</span>
                 </a>
             </div>
@@ -708,19 +707,7 @@
                 if (e.key === 'Escape') closeMenu();
             });
 
-            // Ensure the menu is not clipped by parent overflow; if parent has overflow hidden,
-            // fallback: move menu to body (uncomment the block below if you still face clipping).
-            /*
-            if (productMenu.getBoundingClientRect().bottom > window.innerHeight ||
-                productMenu.getBoundingClientRect().right > window.innerWidth) {
-              document.body.appendChild(productMenu);
-              const rect = productBtn.getBoundingClientRect();
-              productMenu.style.position = 'absolute';
-              productMenu.style.left = rect.left + 'px';
-              productMenu.style.top = rect.bottom + 'px';
-              productMenu.style.zIndex = '9999';
-            }
-            */
+
         })();
 
     </script>
