@@ -1819,6 +1819,14 @@
 
     </script>
 
+
+    <script>
+        function openPdfForm(pdfPath) {
+            localStorage.setItem("selectedPDF", pdfPath);
+            window.location.href = "./data-sheet-form.html";
+        }
+    </script>
+
 </body>
 
 </html>

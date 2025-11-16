@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Data Sheet</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Formspree -->
+    <!-- REPLACE your Formspree endpoint here ⬇ -->
+    <script>
+        const FORMSPREE_URL = "https://formspree.io/f/mvgveerv"; 
+    </script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Container -->
+    <div class="max-w-xl mx-auto mt-10 bg-white p-8 rounded-2xl shadow-lg">
+
+        <h2 class="text-2xl font-bold text-center mb-4 text-gray-800">
+            Request Technical Data Sheet
+        </h2>
+
+        <p class="text-center text-gray-600 mb-6">
+            Please fill the form below. The PDF will automatically open after submission.
+        </p>
+
+        <!-- FORM -->
+        <form id="datasheetForm" class="space-y-4">
+
+            <input type="text" name="name" required placeholder="Your Name"
+                class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-400">
+
+            <input type="email" name="email" required placeholder="Your Email"
+                class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-400">
+
+            <input type="text" name="company" placeholder="Company Name"
+                class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-400">
+
+            <textarea name="message" rows="4" placeholder="Message (optional)"
+                class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-400"></textarea>
+
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition">
+                Submit & Open Data Sheet
+            </button>
+        </form>
+
+        <!-- Success Message -->
+        <p id="successMsg" class="text-green-600 text-center font-medium mt-4 hidden">
+            ✓ Form submitted! Opening your PDF…
+        </p>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const pdfPath = localStorage.getItem("selectedPDF"); // Get PDF path
+            const form = document.getElementById("datasheetForm");
+            const successMsg = document.getElementById("successMsg");
+
+            if (!pdfPath) {
+                alert("No PDF found. Please go back and try again.");
+            }
+
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                // Send form to Formspree
+                try {
+                    await fetch(FORMSPREE_URL, {
+                        method: "POST",
+                        body: formData,
+                        headers: { "Accept": "application/json" }
+                    });
+
+                    // Show success message
+                    successMsg.classList.remove("hidden");
+
+                    // Open PDF after delay
+                    setTimeout(() => {
+                        window.location.href = pdfPath;
+                    }, 800);
+
+                } catch (error) {
+                    alert("Something went wrong! Please try again.");
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
