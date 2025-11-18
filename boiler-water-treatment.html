@@ -746,6 +746,35 @@
             menu.classList.toggle('hidden');
         });
     </script>
+    <!-- formobiledatasheet -->
+    <script>
+        function openForm(pdfUrl) {
+            document.getElementById("pdfLink").value = pdfUrl;
+            document.getElementById("formModal").classList.remove("hidden");
+        }
+
+        function closeForm() {
+            document.getElementById("formModal").classList.add("hidden");
+        }
+
+        document.getElementById("dataSheetForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const form = this;
+            const pdfUrl = document.getElementById("pdfLink").value;
+
+            await fetch(form.action, {
+                method: "POST",
+                body: new FormData(form)
+            });
+
+            closeForm();
+
+            // MOBILE-SAFE PDF OPEN
+            window.location.href = pdfUrl;
+        });
+    </script>
+
 </body>
 
 </html>
