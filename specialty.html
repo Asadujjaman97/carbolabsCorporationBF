@@ -227,11 +227,11 @@
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
 
-            <!-- Product 1 -->
+            <!-- Product 1 ZOK 27 ok-->
             <div
                 class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
                 <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/zok_product_can_01.jpg" alt="Sodium Tripolyphosphate"
+                    <img src="./Image/zok_product_can_01.jpeg" alt="Sodium Tripolyphosphate"
                         class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
                 </div>
                 <div class="p-4 flex flex-col flex-grow">
@@ -240,7 +240,7 @@
                         formulation for heavy-duty scale
                         removal. Delivers rapid cleaning action and
                         corrosion protection in high-pressure boiler systems.</p>
-                    <button onclick="openForm('pdfs/ZOK 27_2023_April_11_GB_EN.pdf')"
+                    <button onclick="openForm('pdfs/ZOK-27-TDS.pdf')"
                         class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
                         Data Sheet
                     </button>
@@ -251,15 +251,16 @@
             <div
                 class="bg-white rounded-2xl shadow hover:shadow-xl transition transform hover:-translate-y-2 hover:scale-105 flex flex-col">
                 <div class="h-44 flex justify-center items-center bg-gray-50 rounded-t-2xl overflow-hidden">
-                    <img src="./Image/8331.jpg" alt="Caustic Soda"
+                    <img src="./Image/nalco 2000.svg" alt="Caustic Soda"
                         class="max-h-40 w-auto object-contain hover:scale-110 transition duration-300" />
                 </div>
                 <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">ASR DISPERSE 8338</h3>
-                    <p class="text-gray-600 text-sm flex-grow">Advanced powder-phase boiler treatment engineered for
-                        efficient scale prevention, corrosion
-                        protection, and alkalinity balance in daily operation. </p>
-                    <button onclick="openForm('pdfs/ASR DISPERSE 8338.pdf')"
+                    <h3 class="text-lg font-semibold mb-1 hover:text-[#0077c2] transition">NALCOOL® 2000</h3>
+                    <p class="text-gray-600 text-sm flex-grow">NALCOOL 2000 functions as a protective, film-
+                        forming corrosion inhibitor and scale suppressant to
+                        keep engines clean and free from scale, and reduces
+                        downtime and maintenance costs. </p>
+                    <button onclick="openForm('pdfs/Nalcool 2000.pdf')"
                         class="mt-4 bg-[#0077c2] text-white py-2 rounded-lg hover:bg-[#005f99] transition">
                         Data Sheet
                     </button>
@@ -762,8 +763,9 @@
             });
 
             if (response.ok) {
-                // 🔥 Mobile FIX → open PDF in the SAME tab
-                window.location.href = pdfURL;
+
+                window.open(pdfUrl, "_blank");
+
             } else {
                 alert("Something went wrong. Please try again.");
             }

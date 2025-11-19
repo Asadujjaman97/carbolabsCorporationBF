@@ -772,7 +772,8 @@
 
             if (response.ok) {
                 // 🔥 Mobile FIX → open PDF in the SAME tab
-                window.location.href = pdfURL;
+                window.open(pdfUrl, "_blank");
+
             } else {
                 alert("Something went wrong. Please try again.");
             }
